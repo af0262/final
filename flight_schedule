@@ -1,0 +1,23 @@
+from urllib.request import urlopen
+
+class FlightSchedule:
+
+    def read_data_from_file(self):
+     with open("flight_data.csv", encoding='utf-8') as file:
+         for line in file:
+             data = line.split(",")
+             flights=len(data[0])
+             plane_identifiers=len(set(data[1]))
+            
+
+    def determine_longest_flight(self):
+        with open("flight_data.csv", encoding='utf-8') as file:
+            longest_flight_data=None
+            longest_flight=0
+            for line in file:
+                data = line.split(",")
+                longest=int(data[4])
+                if longest >longest_flight:
+                    longest_flight=longest
+                    longest_flight_data=data
+
